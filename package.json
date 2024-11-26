@@ -6,6 +6,12 @@
   "type": "module",
   "license": "AGPL-version-3.0",
   "private": false,
+  "scripts": {
+    "dev": "npm run services:up && node --watch --env-file=.env server.js",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down"
+  },
   "engines": {
     "node": ">= 14.0.0",
     "npm": ">= 6.0.0"
@@ -23,10 +29,6 @@
     "url": ""
   },
   "contributors": [],
-  "scripts": {
-    "dev": "",
-    "test": ""
-  },
   "dependencies": {
     "express": "^4.21.1",
     "mysql2": "^3.11.4"
